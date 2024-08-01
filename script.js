@@ -1,0 +1,111 @@
+function add(a,b) {
+    totalNumber = a + b;
+}
+
+function subtract(a,b) {
+    totalNumber = a - b;
+}
+
+function multiply(a,b) {
+    totalNumber = a * b;
+}
+
+function divide(a,b) {
+    if (b === 0) {
+        totalNumber = "Uncool!";
+    } else {
+    totalNumber =  a / b;
+    }   
+}
+
+function remainder(a,b) {
+    totalNumber = a - (parseInt(a/b) * b);
+}
+
+displayNumber = "0";
+operand = "0";
+firstNumber = 0;
+totalNumber = 0;
+
+
+function calculate(a,b) {
+    b = parseFloat(b);
+    if (operand === "add") {
+        add(a,b);
+    } else if (operand === "subtract") {
+        subtract(a,b);
+    } else if (operand === "multiply") {
+        multiply(a,b);
+    } else if (operand === "divide") {
+        divide(a,b);
+    } else if (operand === "remainder") {
+        remainder(a,b);
+    }
+    if (totalNumber == "Uncool!") {
+        screen.innerText = totalNumber;
+        totalNumber = 0;
+        displayNumber = "0";
+        firstNumber = 0;
+        operand = "0";
+    } else {
+    totalNumber = String(totalNumber);
+    if (totalNumber.length >= 9) {
+        totalNumber = totalNumber.slice(0,8);
+    }
+    totalNumber = String(parseFloat(totalNumber));
+    displayNumber = totalNumber;
+    screen.innerText = displayNumber;
+    operand = "0";
+    }
+}
+
+const screen = document.getElementById("screen");
+screen.innerText = displayNumber;
+
+function myFunction(num) {
+        if (displayNumber == "0" || displayNumber == totalNumber) {
+            displayNumber = num;
+        } else {
+            displayNumber += num;
+            if (displayNumber.length >= 9) {
+                displayNumber = displayNumber.slice(0,8);
+            }
+        }
+    screen.innerText = displayNumber;
+    
+  }
+
+function periodFunction(num) {
+    if (displayNumber.includes(".")) {
+        displayNumber = displayNumber;
+    } else {
+        displayNumber += num;
+    }
+}
+
+function operator(e){
+    if (operand == "0") {
+        operand = e;
+
+        firstNumber = parseFloat(displayNumber);
+        displayNumber = "0";
+        screen.innerText= displayNumber;
+    } else {
+        calculate(firstNumber, displayNumber);
+    }
+}
+
+function remove(num) {
+    operand = num;
+    displayNumber = num;
+    firstNumber = 0;
+    totalNumber = 0;
+    screen.innerText = displayNumber;
+
+
+}
+
+function changeSign(num) {
+    displayNumber = String(parseFloat(displayNumber) * -1);
+    screen.innerText = displayNumber;
+}
