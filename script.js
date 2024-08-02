@@ -35,9 +35,9 @@ if (displayNumber.includes(".")) {
 }   
 }
 
-function remove(num) {
-    operand = num;
-    displayNumber = num;
+function remove() {
+    operand = "0";
+    displayNumber = "0";
     firstNumber = 0;
     totalNumber = 0;
     screen.innerText = displayNumber;
@@ -77,7 +77,7 @@ function calculate(a,b) {
         totalNumber = remainder(a,b);
     }
     if (totalNumber == "Uncool!") {
-        screen.innerText = totalNumber;
+        screen.innerText = "Uncool!";
         totalNumber = 0;
         displayNumber = "0";
         firstNumber = 0;

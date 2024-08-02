@@ -3,36 +3,13 @@ body {
     flex-direction: column;
     background-color: black;
     align-items: center;
-
 }
 
-
-
-.numButton, .bigButton {
-    color: black;
-    height: 30px;
-    width: 30px;
-    font-size: 30px;
-    padding: 30px;
-    box-sizing: content-box;
-    border: solid blue 3px;
-    background-color: rgb(118, 118, 202);
-
-}
-
-.numButton {
-    height: 30px;
-    width: 30px;
-}
-
-.bigButton {
-    height: 30px;
-    width: 125px;
-
-}
-
-.rows {
-    display: flex;
+#titlePage {
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    font-weight: bolder;
 }
 
 #display {
@@ -50,27 +27,40 @@ body {
     margin-bottom: 10px;
 }
 
+.numButton, .bigButton {
+    color: black;
+    height: 30px;
+    width: 30px;
+    font-size: 30px;
+    padding: 30px;
+    box-sizing: content-box;
+    border: solid blue 3px;
+    background-color: rgb(118, 118, 202);
+}
+
+.numButton {
+    height: 30px;
+    width: 30px;
+}
+
+.bigButton {
+    height: 30px;
+    width: 125px;
+}
+
 .calculatorBody {
     width: 390px;
     height: 650px;
     display: flex;
     justify-content: center;
-
     flex-wrap: wrap;
     padding: 30px;
     margin-bottom: 30px;
     text-align: center;
     background-color: blue;
     border-radius: 10px;
-
 }
 
-#titlePage {
-    text-align: center;
-    color: white;
-    font-size: 60px;
-    font-weight: bolder;
-}
 
 
 
