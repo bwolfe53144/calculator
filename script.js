@@ -14,6 +14,52 @@ let remainder = (a,b) => a % b;
 const screen = document.getElementById("screen");
 screen.innerText = displayNumber;
 
+/* Button functions */
+function numFunction(num) {
+    if (displayNumber == "0" || displayNumber == totalNumber) {
+        displayNumber = num;
+    } else {
+        displayNumber += num;
+        if (displayNumber.length >= 9) {
+            displayNumber = displayNumber.slice(0,8);
+        }
+    }
+screen.innerText = displayNumber; 
+}
+
+function periodFunction(num) {
+if (displayNumber.includes(".")) {
+    displayNumber = displayNumber;
+} else {
+    displayNumber += num;
+}   
+}
+
+function remove(num) {
+    operand = num;
+    displayNumber = num;
+    firstNumber = 0;
+    totalNumber = 0;
+    screen.innerText = displayNumber;
+}
+
+function changeSign(num) {
+    displayNumber = String(parseFloat(displayNumber) * -1);
+    screen.innerText = displayNumber;
+}
+
+function operator(e){
+    if (operand == "0") {
+        operand = e;
+        firstNumber = parseFloat(displayNumber);
+        displayNumber = "0";
+        screen.innerText= displayNumber;
+    } else {
+        calculate(firstNumber, displayNumber);
+    }
+}
+
+/* Function to calculate the numbers */
 function calculate(a,b) {
     b = parseFloat(b);
     if (operand === "add") {
@@ -46,48 +92,4 @@ function calculate(a,b) {
     screen.innerText = displayNumber;
     operand = "0";
     }
-}
-
-function myFunction(num) {
-        if (displayNumber == "0" || displayNumber == totalNumber) {
-            displayNumber = num;
-        } else {
-            displayNumber += num;
-            if (displayNumber.length >= 9) {
-                displayNumber = displayNumber.slice(0,8);
-            }
-        }
-    screen.innerText = displayNumber; 
-  }
-
-function periodFunction(num) {
-    if (displayNumber.includes(".")) {
-        displayNumber = displayNumber;
-    } else {
-        displayNumber += num;
-    }
-}
-
-function operator(e){
-    if (operand == "0") {
-        operand = e;
-        firstNumber = parseFloat(displayNumber);
-        displayNumber = "0";
-        screen.innerText= displayNumber;
-    } else {
-        calculate(firstNumber, displayNumber);
-    }
-}
-
-function remove(num) {
-    operand = num;
-    displayNumber = num;
-    firstNumber = 0;
-    totalNumber = 0;
-    screen.innerText = displayNumber;
-}
-
-function changeSign(num) {
-    displayNumber = String(parseFloat(displayNumber) * -1);
-    screen.innerText = displayNumber;
 }
